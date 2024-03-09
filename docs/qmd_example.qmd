@@ -5,6 +5,7 @@ format:
     html:
         toc: true
         toc-depth: 2
+        embed-resources: true
 bibliography: references.bib
 editor: source
 ---
@@ -40,13 +41,13 @@ Suppose we were interested in looking more closely at the province with the high
 #| label: tbl:horsePopStdDev
 #| caption: 'Table 1. Standard deviation of historical (1906-1972) horse populations for each Canadian province.'
 horses_sd_table = pd.read_csv("../results/horses_sd.csv")
-largest_sd = horses_sd_table.loc[horses_sd_table['std_dev'].idxmax()]['Province']
+largest_sd = horses_sd_table.loc[horses_sd_table['Std'].idxmax()]['Province']
 display(Markdown(horses_sd_table.to_markdown(index=False)))
 ```
 
 Note that we define standard deviation (of a sample) as
 
-$$s = \sqrt{rac{\sum_{i=1}^N (x_i - \overline{x})^2}{N-1} }$$
+$$s = \sqrt{\frac{\sum_{i=1}^N (x_i - \overline{x})^2}{N-1} }$$
 
 Additionally, in Table \@ref(tbl:horsePopStdDev) we consider the sample standard deviation of the number of horses during the same time span as Figure \@ref(fig:horsePops).
 
